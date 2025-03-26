@@ -1,4 +1,22 @@
-const emailText = "Hello, I'm reaching out regarding your account.";
+const emailText = `
+Hi Rich,
+
+My name is George, and I'm an AI consultant that helps small and midsize coaching businesses speed up content creation and client management by incorporating some of the latest AI technology.
+
+
+I'm interviewing leaders in the online coaching community about how they're using AI. If you're up for it, I would love to pick your brain for a few minutes, and I'll also send you an anonymized report summarizing my conversations with folks in your industry.
+
+
+
+Do you have 20 minutes for a quick, informal chat about how you're currently using AI?
+
+
+Have a great day,
+
+George Norberg
+Founder
+Power Up Automations
+`;
 
 // Source: https://www.emailchaser.com/learn/spam-trigger-words
 const spamWords = [
@@ -408,11 +426,13 @@ function checkEmailForSpam(emailText, spamWords) {
     throw new Error('Invalid input: emailText must be a string and spamWords must be an array');
   }
   
-  // For case-insensitive and dash-insensitive matching
-  const emailLowerCaseNoDashes = emailText.toLowerCase().replace(/[-]/g, ' ');
-  const foundSpamWords = spamWords.filter(word => 
-    emailLowerCaseNoDashes.includes(word)
-  );
+  // Catch any spam words hiding with dashes
+  const emailNoDashes = emailText.replace(/[-]/g, ' ');
+  const foundSpamWords = spamWords.filter(word => {
+    // Match whole words only, case-insensitive
+    const wordPattern = new RegExp(`\\b${word}\\b`, 'i');
+    return wordPattern.test(emailNoDashes);
+  });
   
   if (foundSpamWords.length === 0) {
     return 'You can safely send this email';
