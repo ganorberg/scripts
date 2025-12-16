@@ -1,5 +1,5 @@
 const emailText = `
-Hi Rich,
+Hi Richie,
 
 My name is George, and I'm an AI consultant that helps small and midsize coaching businesses speed up content creation and client management by incorporating some of the latest AI technology.
 
