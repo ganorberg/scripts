@@ -1,0 +1,4 @@
+email,first_name,last_name,company_name,title,company_size
+alice@example.com,Alice,Smith,Acme Corp,CEO,500
+bob@example.com,Bob,Jones,BigCo,CTO,1000
+charlie@example.com,Charlie,Brown,SmallBiz,VP Sales,200

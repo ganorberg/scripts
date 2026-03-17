@@ -1,0 +1,5 @@
+email,first_name,last_name,company_name,title,company_size
+valid@example.com,Valid,User,GoodCo,CEO,100
+not-an-email,Bad,Row,BadCo,CTO,50
+,Missing,Email,NoCo,VP,200
+also-valid@example.com,Also,Valid,OkCo,Dir,300
